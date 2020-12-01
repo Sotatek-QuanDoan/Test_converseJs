@@ -1,9 +1,15 @@
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './',
+  entry: './index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname)
-  }
+    path: path.resolve(__dirname, './build'),
+    filename: 'index.js'
+  },
+  devServer: {
+    port: 3333,
+    publicPath: '/build'
+  },
+  plugins: [new HtmlWebpackPlugin()],
 };

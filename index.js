@@ -7,7 +7,13 @@ converse.initialize({
 
 converse.plugins.add('myplugin', { initialize: function () {
   this._converse.api.listen.on('messageSend', (msg) => {
-    alert(msg.attributes.message);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: msg.attributes.message,
+      showConfirmButton: false,
+      timer: 1000
+    })
   });
   },
 });
